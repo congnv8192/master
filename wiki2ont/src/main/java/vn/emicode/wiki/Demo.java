@@ -29,11 +29,21 @@ public class Demo {
 
 		@Override
 		public void process(WikiArticle page, Siteinfo siteinfo) throws IOException {
+//			System.out.println(siteinfo.getSitename());
 			if (page.isMain()) {
-				InfoBox box = WikiPatternMatcher.parseInfoBox(page.getText());
-				if (box != null) {
-					Map<String, String> attributes = box.getAttributes();
-//					for (String attribute : attributes.keySet()) {
+				
+				PatternMatcher matcher = new PatternMatcher(page.getText());
+				System.out.println(Utils.toWikiUrl(page.getTitle()));
+				System.out.println(matcher.getSummary());
+				
+				System.exit(0);
+				
+				
+				
+//				InfoBox box = Matcher.parseInfoBox(page.getText());
+//				if (box != null) {
+//					Map<String, String> attributes = box.getAttributes();
+////					for (String attribute : attributes.keySet()) {
 //						System.out.println(attribute +" = "+ attributes.get(attribute));
 //					}
 					
@@ -42,7 +52,7 @@ public class Demo {
 //					System.out.println(WikiPatternMatcher.getPlainText(box.dumpRaw()));
 //					System.out.println("----------------------");
 				}
-			}
+//			}
 		}
 	}
 
@@ -50,7 +60,7 @@ public class Demo {
 	 * @param args filename, e.g. dewikiversity-20100401-pages-articles.xml.bz2
 	 */
 	public static void main(String[] args) throws Exception {
-		new WikiXMLParser(new File("data/viwiki-20201020-pages-articles-multistream4.xml-p4565247p6065246.bz2"),
+		new WikiXMLParser(new File("in/wikidumps/viwiki-20201020-pages-articles-multistream4.xml-p4565247p6065246.bz2"),
 				new ArticleFilter()).parse();
 
 	}

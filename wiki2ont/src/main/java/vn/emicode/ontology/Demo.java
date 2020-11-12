@@ -31,6 +31,7 @@ public class Demo {
 			OWLDataFactory df = OWLManager.getOWLDataFactory();
 			
 			
+			
 			System.out.println(o);
 		} catch (OWLOntologyCreationException e) {
 			e.printStackTrace();

@@ -20,4 +20,12 @@ public class Servlet extends HttpServlet {
 		out.print(json);
 		out.flush();
 	}
+	
+	protected void html(HttpServletResponse response, String html) throws IOException {
+		PrintWriter out = response.getWriter();
+		response.setContentType("text/html");
+		response.setCharacterEncoding("UTF-8");
+		out.print(html);
+		out.flush();
+	}
 }

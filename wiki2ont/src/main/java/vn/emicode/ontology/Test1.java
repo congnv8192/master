@@ -24,7 +24,7 @@ public class Test1 {
 		// Related data-factory:
 		OWLDataFactory factory = manager.getOWLDataFactory();
 		// Creating an ontology:
-		OWLOntology ontology = manager.createOntology(IRI.create("first"));
+		OWLOntology ontology = manager.createOntology(IRI.create("first-class"));
 		// Adding sub-class-of axiom:
 
 	    ontology.addAxiom(factory.getOWLSubClassOfAxiom(factory.getOWLClass("first-class"), factory.getOWLThing()));
@@ -43,6 +43,7 @@ public class Test1 {
 		
 	    System.out.println("\nList of owl-axioms:");
 	    ontology.axioms().forEach(System.out::println);
+	    
 	    System.out.println("\nAll jena-statements:");
 	    model.listStatements().forEachRemaining(System.out::println);
 	}

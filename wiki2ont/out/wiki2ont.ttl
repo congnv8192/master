@@ -1,0 +1,328 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml:   <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://emicode.vn#Infobox company >
+        a       owl:Class .
+
+<http://emicode.vn#Infobox Government agency>
+        a       owl:Class .
+
+<http://emicode.vn#Infobox Officeholder>
+        a       owl:Class .
+
+<http://emicode.vn#Đội tuyển bóng chuyền nam quốc gia Argentina>
+        a       <http://emicode.vn#Infobox national volleyball team> , owl:NamedIndividual .
+
+<http://emicode.vn#Pháo hoa, nên ngắm từ dưới hay bên cạnh? (phim 2017)>
+        a       <http://emicode.vn#Infobox film> , owl:NamedIndividual .
+
+<http://emicode.vn#Karate tại Đại hội Thể thao Đông Nam Á 2017>
+        a       <http://emicode.vn#Infobox Southeast Asian Games event> , owl:NamedIndividual .
+
+<http://emicode.vn#Đội tuyển bóng chuyền nam quốc gia Slovakia>
+        a       <http://emicode.vn#Infobox national volleyball team> , owl:NamedIndividual .
+
+<http://emicode.vn#Đội tuyển bóng chuyền nam quốc gia Đức>
+        a       <http://emicode.vn#Infobox national volleyball team> , owl:NamedIndividual .
+
+<http://emicode.vn#Giuse Trần Công Ngao>
+        a       <http://emicode.vn#Infobox Christian leader> , owl:NamedIndividual .
+
+<http://emicode.vn#Đội tuyển bóng chuyền nam quốc gia Phần Lan>
+        a       <http://emicode.vn#Infobox national volleyball team> , owl:NamedIndividual .
+
+<http://emicode.vn#Gương mặt thân quen nhí (mùa thứ tư)>
+        a       <http://emicode.vn#Infobox television> , owl:NamedIndividual .
+
+<http://emicode.vn#Infobox television>
+        a       owl:Class .
+
+<http://emicode.vn#Bắn súng tại Đại hội Thể thao Đông Nam Á 2017>
+        a       <http://emicode.vn#Infobox Southeast Asian Games event> , owl:NamedIndividual .
+
+<http://emicode.vn#A&W Restaurants>
+        a       <http://emicode.vn#Infobox company> , owl:NamedIndividual .
+
+<http://emicode.vn#Giuse Từ Hoành Căn>
+        a       <http://emicode.vn#Infobox Christian leader> , owl:NamedIndividual .
+
+<http://emicode.vn#Do-jeon Supermodel Korea, Mùa 3>
+        a       <http://emicode.vn#Infobox television> , owl:NamedIndividual .
+
+<http://emicode.vn#All That She Wants>
+        a       <http://emicode.vn#Infobox single> , owl:NamedIndividual .
+
+<http://emicode.vn#Nguyễn Thị Muôn>
+        a       <http://emicode.vn#Infobox football biography> , owl:NamedIndividual .
+
+<http://emicode.vn#Infobox Film|name=Cuộc Sống Hậu Hiện Tại Của Dì Tôi 姨妈的后现代生活|image=|image_size=220pixel|director=[[Hứa An Hoa]]|screenplay=[[Hứa An Hoa]] Lý Tường|writer=Yên Yên|starring=[[Tư Cầm Cao Oa]] [[Châu Nhuận Phát]] [[Triệu Vy]] Lô Yến|music=[[Hisaishi Joe]]|cinematography=Quan Bổn Lương Dư Lực Vy|editing=Liệu Khánh Tùng|released=8 tháng 9 năm 2006 ([[Liên hoan phim quốc tế Toronto]]) 2 tháng 3 năm 2007 (Đài Loan)  6 tháng 3 năm 2007 (Trung Quốc) 8 tháng 3 năm 2007 (Hồng Kông)|runtime=111 phủt|country=Hồng Kông Trung Quốc Đài Loan|language=[[Tiếng Phổ thông|Mandarin]] [[Tiếng Thượng Hải]]|executive_production=Yuan Mei|producer=Trương Vương|studio=Tập đoàn điện ảnh Bác Nạp Công ty phát hành Bắc Kinh Kì Hân Nhiên Công ty ca sĩ Hương Cảng Công ty phát triển công nghệ Bắc Kinh Âu Ngải  }}>
+        a       owl:Class .
+
+<http://emicode.vn#Tấn công Barcelona 2017>
+        a       <http://emicode.vn#Infobox civilian attack> , owl:NamedIndividual .
+
+<http://emicode.vn#Wushu tại Đại hội Thể thao Đông Nam Á 2017>
+        a       <http://emicode.vn#Infobox Southeast Asian Games event> , owl:NamedIndividual .
+
+<http://emicode.vn#Triệu Nhã Chi>
+        a       <http://emicode.vn#Infobox Chinese-language singer and actor|name=Triệu Nhã Chi Angie Chiu|othername=Angie Chiu|image=|ancestry=[[Khai Phong]], [[Hà Nam]], CHN}}|birth_date=birth date and age|1954|11|15}}|birth_place=[[Cửu Long]], flag|Hồng Kông thuộc Anh}}|spouse=[[Huỳnh Hán Vỹ]] ([[1975]] - [[1982]]) [[Huỳnh Cẩm Sâm]] ([[1984]] - nay)|children=[[Huỳnh Quang Hoằng]] [[Huỳnh Quang Nghi]] [[Huỳnh Khải Kiệt]] ([[1987]] - nay)|measurements=|language=[[Quảng Đông]], [[Quan Thoại]], [[Tiếng Anh]], [[Tiếng Nhật]] và [[Tiếng Nga]]|occupation=[[Diễn viên truyền hình]] [[Diễn viên điện ảnh]] [[Người dẫn chương trình]] [[Ca sĩ]]|alma_mater=[[Shung Tak Catholic English College]] [[Đại học Thanh Hoa]]|education=[[MBA]]|ethnicity=[[Hoa]]|notablerole=Money Crazy Bí Mật (The secret) [[Bến Thượng Hải]] [[Quan Thế Âm]] [[Tân Bạch Nương Tử Truyền Kỳ]] > , owl:NamedIndividual .
+
+<http://emicode.vn#Bắn cung tại Đại hội Thể thao Đông Nam Á 2017 - Kết quả>
+        a       <http://emicode.vn#Infobox Southeast Asian Games event> , owl:NamedIndividual .
+
+<http://emicode.vn#Thái Lan tại Đại hội Thể thao Đông Nam Á 2017>
+        a       <http://emicode.vn#Infobox country at games> , owl:NamedIndividual .
+
+<http://emicode.vn#Never Forget (bài hát của Take That)>
+        a       <http://emicode.vn#Infobox single> , owl:NamedIndividual .
+
+<http://emicode.vn#Đội tuyển bóng chuyền nam quốc gia Nga>
+        a       <http://emicode.vn#Infobox national volleyball team> , owl:NamedIndividual .
+
+<http://emicode.vn#Việt Nam tại Giải vô địch điền kinh thế giới 2017>
+        a       <http://emicode.vn#Infobox country at games> , owl:NamedIndividual .
+
+<http://emicode.vn#Ba môn phối hợp tại Đại hội Thể thao Đông Nam Á 2017>
+        a       <http://emicode.vn#Infobox Southeast Asian Games event> , owl:NamedIndividual .
+
+<http://emicode.vn#Infobox aircraft begin>
+        a       owl:Class .
+
+<http://emicode.vn#Tiếng Cumbria>
+        a       <http://emicode.vn#Infobox language> , owl:NamedIndividual .
+
+<http://emicode.vn#Đội tuyển bóng chuyền nam quốc gia Iran>
+        a       <http://emicode.vn#Infobox national volleyball team> , owl:NamedIndividual .
+
+<http://emicode.vn#Lở đất Sierra Leone 2017>
+        a       <http://emicode.vn#Infobox event> , owl:NamedIndividual .
+
+<http://emicode.vn#Infobox Southeast Asian Games event>
+        a       owl:Class .
+
+<http://emicode.vn#Infobox Christian leader>
+        a       owl:Class .
+
+<http://emicode.vn#Đội tuyển bóng chuyền nam quốc gia Thổ Nhĩ Kỳ>
+        a       <http://emicode.vn#Infobox national volleyball team> , owl:NamedIndividual .
+
+<http://emicode.vn#Quách Thanh Côn>
+        a       <http://emicode.vn#Infobox Officeholder> , owl:NamedIndividual .
+
+<http://emicode.vn#Bơi lội tại Đại hội Thể thao Đông Nam Á 2017>
+        a       <http://emicode.vn#Infobox Southeast Asian Games event> , owl:NamedIndividual .
+
+<http://emicode.vn#Cầu lông tại Đại hội Thể thao Đông Nam Á 2017 - Đồng đội nam>
+        a       <http://emicode.vn#Infobox Southeast Asian Games event> , owl:NamedIndividual .
+
+<http://emicode.vn#Do-jeon Supermodel Korea, Mùa 2>
+        a       <http://emicode.vn#Infobox television> , owl:NamedIndividual .
+
+<http://emicode.vn#Top Eleven Football Manager>
+        a       <http://emicode.vn#Infobox video game> , owl:NamedIndividual .
+
+<http://emicode.vn#Cử tạ tại Đại hội Thể thao Đông Nam Á 2017>
+        a       <http://emicode.vn#Infobox Southeast Asian Games event> , owl:NamedIndividual .
+
+<http://emicode.vn#Luca Lý Kính Phong>
+        a       <http://emicode.vn#Infobox Christian leader> , owl:NamedIndividual .
+
+<http://emicode.vn#Đội tuyển bóng chuyền nam quốc gia Canada>
+        a       <http://emicode.vn#Infobox national volleyball team> , owl:NamedIndividual .
+
+<http://emicode.vn#Infobox single>
+        a       owl:Class .
+
+<http://emicode.vn#Infobox person>
+        a       owl:Class .
+
+<http://emicode.vn#Phêrô Lưu Chấn Trung>
+        a       <http://emicode.vn#Infobox Christian leader> , owl:NamedIndividual .
+
+<http://emicode.vn#Vincent (bài hát)>
+        a       <http://emicode.vn#Infobox single> , owl:NamedIndividual .
+
+<http://emicode.vn#Infobox event>
+        a       owl:Class .
+
+<http://emicode.vn#Infobox video game>
+        a       owl:Class .
+
+<http://emicode.vn#Kao Corporation>
+        a       <http://emicode.vn#Infobox company> , owl:NamedIndividual .
+
+<http://emicode.vn#OPI Products>
+        a       <http://emicode.vn#Infobox company > , owl:NamedIndividual .
+
+<http://emicode.vn#Mátthêu Hồ Hiền Đức>
+        a       <http://emicode.vn#Infobox Christian leader> , owl:NamedIndividual .
+
+<http://emicode.vn#Dipika Kakar>
+        a       <http://emicode.vn#Infobox person> , owl:NamedIndividual .
+
+<http://emicode.vn#Aodh (tên riêng)>
+        a       <http://emicode.vn#Infobox given name> , owl:NamedIndividual .
+
+<http://emicode.vn#Bất thường tại trường phép thuật: Cô gái triệu hồi những vì sao>
+        a       <http://emicode.vn#Infobox film> , owl:NamedIndividual .
+
+<http://emicode.vn#Infobox Chinese-language singer and actor|name=Triệu Nhã Chi Angie Chiu|othername=Angie Chiu|image=|ancestry=[[Khai Phong]], [[Hà Nam]], CHN}}|birth_date=birth date and age|1954|11|15}}|birth_place=[[Cửu Long]], flag|Hồng Kông thuộc Anh}}|spouse=[[Huỳnh Hán Vỹ]] ([[1975]] - [[1982]]) [[Huỳnh Cẩm Sâm]] ([[1984]] - nay)|children=[[Huỳnh Quang Hoằng]] [[Huỳnh Quang Nghi]] [[Huỳnh Khải Kiệt]] ([[1987]] - nay)|measurements=|language=[[Quảng Đông]], [[Quan Thoại]], [[Tiếng Anh]], [[Tiếng Nhật]] và [[Tiếng Nga]]|occupation=[[Diễn viên truyền hình]] [[Diễn viên điện ảnh]] [[Người dẫn chương trình]] [[Ca sĩ]]|alma_mater=[[Shung Tak Catholic English College]] [[Đại học Thanh Hoa]]|education=[[MBA]]|ethnicity=[[Hoa]]|notablerole=Money Crazy Bí Mật (The secret) [[Bến Thượng Hải]] [[Quan Thế Âm]] [[Tân Bạch Nương Tử Truyền Kỳ]] >
+        a       owl:Class .
+
+<http://emicode.vn#Giuse Trương Duy Trụ>
+        a       <http://emicode.vn#Infobox Christian leader> , owl:NamedIndividual .
+
+<http://emicode.vn#Dải băng Greenland>
+        a       <http://emicode.vn#Infobox glacier> , owl:NamedIndividual .
+
+<http://emicode.vn#Almay>
+        a       <http://emicode.vn#Infobox company> , owl:NamedIndividual .
+
+<http://emicode.vn#Infobox glacier>
+        a       owl:Class .
+
+<http://emicode.vn#Infobox TV channel>
+        a       owl:Class .
+
+<http://emicode.vn#Đội tuyển bóng chuyền nam quốc gia Ý>
+        a       <http://emicode.vn#Infobox national volleyball team> , owl:NamedIndividual .
+
+<http://emicode.vn#Bóng đá tại Đại hội Thể thao Đông Nam Á 2017>
+        a       <http://emicode.vn#Infobox international football competition> , owl:NamedIndividual .
+
+<http://emicode.vn#Cloudflare>
+        a       <http://emicode.vn#Infobox dot-com company> , owl:NamedIndividual .
+
+<http://emicode.vn#Gioan Bành Vệ Chiếu>
+        a       <http://emicode.vn#Infobox Christian leader> , owl:NamedIndividual .
+
+<http://emicode.vn#Back for Good (bài hát)>
+        a       <http://emicode.vn#Infobox single> , owl:NamedIndividual .
+
+<http://emicode.vn#Đội tuyển bóng chuyền nam quốc gia Ba Lan>
+        a       <http://emicode.vn#Infobox national volleyball team> , owl:NamedIndividual .
+
+<http://emicode.vn#Đội tuyển bóng chuyền nam quốc gia Nhật Bản>
+        a       <http://emicode.vn#Infobox national volleyball team> , owl:NamedIndividual .
+
+<http://emicode.vn#Flightplan>
+        a       <http://emicode.vn#Infobox film> , owl:NamedIndividual .
+
+<http://emicode.vn#Bộ Bảo vệ Môi trường Cộng hòa Nhân dân Trung Hoa>
+        a       <http://emicode.vn#Infobox Government agency> , owl:NamedIndividual .
+
+<http://emicode.vn#Cầu lông tại Đại hội Thể thao Đông Nam Á 2017>
+        a       <http://emicode.vn#Infobox Southeast Asian Games event> , owl:NamedIndividual .
+
+<http://emicode.vn#Phaolô Thiện Quốc Tỷ>
+        a       <http://emicode.vn#Infobox Christian leader> , owl:NamedIndividual .
+
+<http://emicode.vn#Cuộc sống hậu hiện tại của dì tôi>
+        a       <http://emicode.vn#Infobox Film|name=Cuộc Sống Hậu Hiện Tại Của Dì Tôi 姨妈的后现代生活|image=|image_size=220pixel|director=[[Hứa An Hoa]]|screenplay=[[Hứa An Hoa]] Lý Tường|writer=Yên Yên|starring=[[Tư Cầm Cao Oa]] [[Châu Nhuận Phát]] [[Triệu Vy]] Lô Yến|music=[[Hisaishi Joe]]|cinematography=Quan Bổn Lương Dư Lực Vy|editing=Liệu Khánh Tùng|released=8 tháng 9 năm 2006 ([[Liên hoan phim quốc tế Toronto]]) 2 tháng 3 năm 2007 (Đài Loan)  6 tháng 3 năm 2007 (Trung Quốc) 8 tháng 3 năm 2007 (Hồng Kông)|runtime=111 phủt|country=Hồng Kông Trung Quốc Đài Loan|language=[[Tiếng Phổ thông|Mandarin]] [[Tiếng Thượng Hải]]|executive_production=Yuan Mei|producer=Trương Vương|studio=Tập đoàn điện ảnh Bác Nạp Công ty phát hành Bắc Kinh Kì Hân Nhiên Công ty ca sĩ Hương Cảng Công ty phát triển công nghệ Bắc Kinh Âu Ngải  }}> , owl:NamedIndividual .
+
+<http://emicode.vn#Gioan Phòng Hưng Diệu>
+        a       <http://emicode.vn#Infobox Christian leader> , owl:NamedIndividual .
+
+<http://emicode.vn#Gioan Vương Nhân Lôi>
+        a       <http://emicode.vn#Infobox Christian leader> , owl:NamedIndividual .
+
+<http://emicode.vn#Aidan (tên)>
+        a       <http://emicode.vn#Infobox given name> , owl:NamedIndividual .
+
+<http://emicode.vn#Bi sắt tại Đại hội Thể thao Đông Nam Á 2017>
+        a       <http://emicode.vn#Infobox Southeast Asian Games event> , owl:NamedIndividual .
+
+<http://emicode.vn#Infobox national volleyball team>
+        a       owl:Class .
+
+<http://emicode.vn#Infobox country at games>
+        a       owl:Class .
+
+<http://emicode.vn#Tiếng Yupik Trung Xibia>
+        a       <http://emicode.vn#Infobox language> , owl:NamedIndividual .
+
+<http://emicode.vn#Tiếng Pohnpei>
+        a       <http://emicode.vn#Infobox language> , owl:NamedIndividual .
+
+<http://emicode.vn#Đội tuyển bóng chuyền nam quốc gia Úc>
+        a       <http://emicode.vn#Infobox national volleyball team> , owl:NamedIndividual .
+
+<http://emicode.vn#Infobox football biography>
+        a       owl:Class .
+
+<http://emicode.vn#Đội tuyển bóng chuyền nam quốc gia Cộng hòa Séc>
+        a       <http://emicode.vn#Infobox national volleyball team> , owl:NamedIndividual .
+
+<http://emicode.vn#Infobox civilian attack>
+        a       owl:Class .
+
+<http://emicode.vn#Tôn Hồng Lôi>
+        a       <http://emicode.vn#Infobox person> , owl:NamedIndividual .
+
+<http://emicode.vn#Phêrô Trương Chí Dũng>
+        a       <http://emicode.vn#Infobox Christian leader> , owl:NamedIndividual .
+
+<http://emicode.vn#Việt Nam tại Đại hội Thể thao Đông Nam Á 2017>
+        a       <http://emicode.vn#Infobox country at games> , owl:NamedIndividual .
+
+<http://emicode.vn#Yêu lầm một đời>
+        a       <http://emicode.vn#Infobox television> , owl:NamedIndividual .
+
+<http://emicode.vn#Infobox international football competition>
+        a       owl:Class .
+
+<http://emicode.vn#Bóng bàn tại Đại hội Thể thao Đông Nam Á 2017>
+        a       <http://emicode.vn#Infobox Southeast Asian Games event> , owl:NamedIndividual .
+
+<http://emicode.vn#Infobox given name>
+        a       owl:Class .
+
+<http://emicode.vn#Giuliô Giả Trị Quốc>
+        a       <http://emicode.vn#Infobox Christian leader> , owl:NamedIndividual .
+
+<http://emicode.vn#Giuse Dương Vĩnh Cường>
+        a       <http://emicode.vn#Infobox Christian leader> , owl:NamedIndividual .
+
+<http://emicode.vn#Infobox dot-com company>
+        a       owl:Class .
+
+<http://emicode.vn#Phaolô Lương Kiến Sâm>
+        a       <http://emicode.vn#Infobox Christian leader> , owl:NamedIndividual .
+
+<http://emicode.vn#Infobox language>
+        a       owl:Class .
+
+<http://emicode.vn#Fashion King (phim truyền hình)>
+        a       <http://emicode.vn#Infobox television> , owl:NamedIndividual .
+
+<http://emicode.vn#Infobox company>
+        a       owl:Class .
+
+<http://emicode.vn>  a  owl:Ontology .
+
+<http://emicode.vn#Quần vợt tại Đại hội Thể thao Đông Nam Á 2017>
+        a       <http://emicode.vn#Infobox Southeast Asian Games event> , owl:NamedIndividual .
+
+<http://emicode.vn#Phêrô La Tuyết Cương>
+        a       <http://emicode.vn#Infobox Christian leader> , owl:NamedIndividual .
+
+<http://emicode.vn#Đài Phát thanh - Truyền hình Long An>
+        a       <http://emicode.vn#Infobox TV channel> , owl:NamedIndividual .
+
+<http://emicode.vn#Đội tuyển bóng chuyền nam quốc gia México>
+        a       <http://emicode.vn#Infobox national volleyball team> , owl:NamedIndividual .
+
+<http://emicode.vn#Bắn cung tại Đại hội Thể thao Đông Nam Á 2017>
+        a       <http://emicode.vn#Infobox Southeast Asian Games event> , owl:NamedIndividual .
+
+<http://emicode.vn#Infobox film>
+        a       owl:Class .
+
+<http://emicode.vn#Judo tại Đại hội Thể thao Đông Nam Á 2017>
+        a       <http://emicode.vn#Infobox Southeast Asian Games event> , owl:NamedIndividual .
+
+<http://emicode.vn#HAL Light Combat Helicopter>
+        a       <http://emicode.vn#Infobox aircraft begin> , owl:NamedIndividual .
