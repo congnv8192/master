@@ -14,17 +14,18 @@ public class Servlet extends HttpServlet {
 	protected void json(HttpServletResponse response, Object data) throws IOException {
 		String json = new Gson().toJson(data);
 		
-		PrintWriter out = response.getWriter();
-		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
+		response.setContentType("application/json");
+		
+		PrintWriter out = response.getWriter();
 		out.print(json);
 		out.flush();
 	}
 	
 	protected void html(HttpServletResponse response, String html) throws IOException {
 		PrintWriter out = response.getWriter();
-		response.setContentType("text/html");
 		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html");
 		out.print(html);
 		out.flush();
 	}
