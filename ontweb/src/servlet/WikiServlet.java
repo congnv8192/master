@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,9 +10,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import beans.Wiki2OntFactory;
 import info.bliki.wiki.dump.WikiArticle;
 import wiki2ont.Wiki2Ont;
+import wiki2ont.Wiki2OntFactory;
+import wiki2ont.wiki.Utils;
 
 @WebServlet("/wiki")
 public class WikiServlet extends Servlet {
@@ -25,22 +27,15 @@ public class WikiServlet extends Servlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
 		
-		String page = request.getParameter("page");
+		String page = Utils.paramToUTF8(request.getParameter("page"));
 		
 		WikiArticle article = app.addArticleByUrl(page);
 		
 		if (article == null) {
 			json(response, "error !200");
 		} else {
-			if (article.isMain()) {
-				app.processArticle(article);
-				
-				json(response, "success");
-			} else {
-				json(response, "not main");
-			}
+			json(response, "success");
 		}
 	}
 }

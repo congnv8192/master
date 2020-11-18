@@ -1,6 +1,9 @@
 package servlet;
 
 import java.io.IOException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -15,8 +18,9 @@ import org.apache.jena.rdf.model.Statement;
 
 import com.github.owlcs.ontapi.jena.model.OntIndividual;
 
-import beans.Wiki2OntFactory;
 import wiki2ont.Wiki2Ont;
+import wiki2ont.Wiki2OntFactory;
+import wiki2ont.wiki.Utils;
 
 @WebServlet("/query")
 public class QueryServlet extends Servlet {
@@ -33,7 +37,7 @@ public class QueryServlet extends Servlet {
 		
 		request.setCharacterEncoding("UTF-8");
 
-		String q = request.getParameter("q");
+		String q = Utils.paramToUTF8(request.getParameter("q"));
 		
 		List<OntIndividual> individuals = app.query(q);
 		

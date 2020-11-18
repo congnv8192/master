@@ -23,9 +23,10 @@ public class Servlet extends HttpServlet {
 	}
 	
 	protected void html(HttpServletResponse response, String html) throws IOException {
-		PrintWriter out = response.getWriter();
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html");
+		
+		PrintWriter out = response.getWriter();
 		out.print(html);
 		out.flush();
 	}

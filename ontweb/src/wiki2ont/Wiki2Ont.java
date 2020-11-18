@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
@@ -38,7 +37,6 @@ import info.bliki.wiki.dump.InfoBox;
 import info.bliki.wiki.dump.Siteinfo;
 import info.bliki.wiki.dump.WikiArticle;
 import info.bliki.wiki.dump.WikiXMLParser;
-import info.bliki.wiki.template.URLEncode;
 import wiki2ont.wiki.PatternMatcher;
 import wiki2ont.wiki.Utils;
 
@@ -52,7 +50,8 @@ public class Wiki2Ont implements IArticleFilter {
 	private OntClass clCategory;
 	private OntDataProperty propSummary;
 	private OntDataProperty propInfobox;
-
+	private Siteinfo siteinfo;
+	
 	public Wiki2Ont(String uri) {
 		this.uri = uri;
 		this.ns = uri + "#";
@@ -71,6 +70,8 @@ public class Wiki2Ont implements IArticleFilter {
 		clCategory = model.createOntClass(ns + "Category");
 		propSummary = model.createDataProperty(ns + "summary");
 		propInfobox = model.createDataProperty(ns + "infobox");
+		siteinfo = new Siteinfo();
+		siteinfo.setSitename("Wikipedia");
 	}
 
 	public OntDataProperty getPropSummary() {
@@ -190,31 +191,30 @@ public class Wiki2Ont implements IArticleFilter {
 		}
 	}
 
-	public WikiArticle addArticleByUrl(String page) throws UnsupportedEncodingException {
-//		page = "Đại_học_Quốc_gia_Hà_Nội";
-//		page = URLEncoder.encode(page);
-		String url = "https://vi.wikipedia.org/w/api.php?action=parse&prop=wikitext&format=json&page=" + page;
-
-		String json = sendGet(url);
-		JsonObject result = JsonParser.parseString(json).getAsJsonObject();
-		JsonObject parse = result.getAsJsonObject("parse");
-		
-		System.out.println(parse == null);
-
-		WikiArticle article = new WikiArticle();
-
-		if (article != null) {
-			Siteinfo siteinfo = new Siteinfo();
-			siteinfo.setSitename("Wikipedia");
-
-			article.setId(parse.get("pageid").getAsString());
+	public WikiArticle addArticleByUrl(String page) {
+		try {
+			page = URLEncoder.encode(page, "UTF-8");
+			
+			String url = "https://vi.wikipedia.org/w/api.php?action=parse&prop=wikitext&format=json&page=" + page;
+			
+			String json = sendGet(url);
+			
+			JsonObject result = JsonParser.parseString(json).getAsJsonObject();
+			JsonObject parse = result.getAsJsonObject("parse");
+			
+			WikiArticle article = new WikiArticle();
 			article.setTitle(parse.get("title").getAsString(), siteinfo);
-			article.setText(parse.getAsJsonObject("wikitext").get("*").getAsString());
+			article.setId(parse.get("pageid").getAsString());
+			article.setText(parse.getAsJsonObject("wikitext").get("*").getAsString());	
+			
+			//
+			processArticle(article);
 			
 			return article;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
 		}
-
-		return null;
 	}
 
 	public String sendGet(String href) {
@@ -244,7 +244,6 @@ public class Wiki2Ont implements IArticleFilter {
 	}
 
 	public List<OntIndividual> query(String name) {
-//		name = "Ho chi minh";
 		QueryExecution qexec = QueryExecutionFactory
 				.create(QueryFactory.create("PREFIX rdf:	<http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n"
 						+ "PREFIX owl:     <http://www.w3.org/2002/07/owl#> \n"
@@ -256,17 +255,6 @@ public class Wiki2Ont implements IArticleFilter {
 						+ "\", \"i\") \n" + "?x rdf:type wo:Article ."
 //						+ "?x ?p ?o"
 						+ "}"), model);
-		
-		System.out.println("PREFIX rdf:	<http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n"
-						+ "PREFIX owl:     <http://www.w3.org/2002/07/owl#> \n"
-						+ "PREFIX rdfs:     <http://www.w3.org/2000/01/rdf-schema#> \n"
-						+ "PREFIX xsd:     <http://www.w3.org/2001/XMLSchema#> \n"
-						+ "PREFIX wo:     <http://example.com#> \n" +
-
-						"SELECT ?x WHERE { \n" + "?x rdfs:label ?label . FILTER regex(?label, \"" + name
-						+ "\", \"i\") \n" + "?x rdf:type wo:Article ."
-//						+ "?x ?p ?o"
-						+ "}");
 
 		ResultSet res = qexec.execSelect();
 
