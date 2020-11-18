@@ -8,8 +8,10 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import info.bliki.wiki.dump.InfoBox;
 import info.bliki.wiki.dump.WikiPatternMatcher;
+import info.bliki.wiki.filter.PlainTextConverter;
+import info.bliki.wiki.model.WikiModel;
+import wiki2ont.AppConfig;
 
 public class PatternMatcher {
 	private WikiPatternMatcher matcher;
@@ -22,7 +24,6 @@ public class PatternMatcher {
 
 	private final static Pattern REDIRECT_PATTERN = Pattern.compile("#đổi\\s+\\[\\[(.*?)\\]\\]");
 	private final static Pattern CATEGORY_PATTERN = Pattern.compile("\\[\\[Thể loại:(.*?)\\]\\]", Pattern.MULTILINE);
-	
 
 	public PatternMatcher(String text) {
 		this.matcher = new WikiPatternMatcher(text);
@@ -46,49 +47,133 @@ public class PatternMatcher {
 		if (this.matcher.isRedirect()) {
 			return this.matcher.getRedirectText();
 		}
-			
+
 		// vi
 		return this.redirectString;
 	}
 
 	public InfoBox getInfoBox() {
 		if (infoBox == null) {
-			infoBox = this.matcher.getInfoBox();
+			info.bliki.wiki.dump.InfoBox en = this.matcher.getInfoBox();
+			if (en != null) {
+				infoBox = InfoBox.create(this.matcher.getInfoBox());
+			} else {
+				infoBox = parseInfoBox();
+			}
 		}
 
 		return this.infoBox;
 	}
 
-	public List<String> getCategories() {
-        if (pageCats == null) {
-        	parseCategories();
-        }
-        
-        return pageCats;
+	private InfoBox parseInfoBox() {
+		final String[] INFOBOX_CONST_STRS = { "{{Hộp thông tin", "{{Thông tin" };
+		String wikiText = this.matcher.getText();
+
+		for (String INFOBOX_CONST_STR : INFOBOX_CONST_STRS) {
+			int startPos = wikiText.indexOf(INFOBOX_CONST_STR);
+			if (startPos < 0)
+				continue;
+			int bracketCount = 2;
+			int endPos = startPos + INFOBOX_CONST_STR.length();
+
+			if (endPos >= wikiText.length()) {
+				return null;
+			}
+			for (; endPos < wikiText.length(); endPos++) {
+				switch (wikiText.charAt(endPos)) {
+				case '}':
+					bracketCount--;
+					break;
+				case '{':
+					bracketCount++;
+					break;
+				default:
+				}
+				if (bracketCount == 0)
+					break;
+			}
+			String infoBoxText;
+			if (endPos >= wikiText.length()) {
+				infoBoxText = wikiText.substring(startPos);
+			} else {
+				infoBoxText = wikiText.substring(startPos, endPos + 1);
+			}
+			
+			infoBoxText = stripCite(infoBoxText); // strip clumsy {{cite}} tags
+			// strip any html formatting
+			infoBoxText = Utils.decodeHtmlEntities(infoBoxText);
+			
+			infoBoxText = infoBoxText.replaceAll("<ref.*?>.*?</ref>", " ");
+			infoBoxText = infoBoxText.replaceAll("</?.*?>", " ");
+
+			return new InfoBox(infoBoxText);
+		}
+
+		return null;
 	}
-	
+
+	private String stripCite(String text) {
+		String CITE_CONST_STR = "{{cite";
+		int startPos = text.indexOf(CITE_CONST_STR);
+		if (startPos < 0)
+			return text;
+		int bracketCount = 2;
+		int endPos = startPos + CITE_CONST_STR.length();
+		for (; endPos < text.length(); endPos++) {
+			switch (text.charAt(endPos)) {
+			case '}':
+				bracketCount--;
+				break;
+			case '{':
+				bracketCount++;
+				break;
+			default:
+			}
+			if (bracketCount == 0)
+				break;
+		}
+		text = text.substring(0, startPos - 1) + text.substring(endPos);
+		return stripCite(text);
+	}
+
+	public List<String> getCategories() {
+		if (pageCats == null) {
+			parseCategories();
+		}
+
+		return pageCats;
+	}
+
 	private void parseCategories() {
-        pageCats = new ArrayList<>();
-        
-        // en
-        pageCats.addAll(this.matcher.getCategories());
-        
-        // vi
-        Matcher matcher = CATEGORY_PATTERN.matcher(this.matcher.getText());
-        
-        while (matcher.find()) {
-            String[] temp = matcher.group(1).split("\\|");
-            pageCats.add(temp[0]);
-        }
-    }
+		pageCats = new ArrayList<>();
+
+		// en
+		pageCats.addAll(this.matcher.getCategories());
+
+		// vi
+		Matcher matcher = CATEGORY_PATTERN.matcher(this.matcher.getText());
+
+		while (matcher.find()) {
+			String[] temp = matcher.group(1).split("\\|");
+			pageCats.add(temp[0]);
+		}
+	}
 
 	public String getSummary() {
 		if (summary == null) {
 			Scanner scanner = new Scanner(getContent());
-			String line = scanner.nextLine();
-			scanner.close();
-			
-			summary = trim(line, 200);
+			try {
+				String line = scanner.nextLine();
+				scanner.close();
+				
+				summary = trim(line, AppConfig.SUMMARY_LENGTH);
+
+			} catch (Exception e) {
+				e.printStackTrace();
+				
+				System.out.println(getPlainText(this.matcher.getText()));
+			}
+
 		}
 
 		return this.summary;
@@ -104,9 +189,11 @@ public class PatternMatcher {
 	}
 
 	public String getContent() {
-		StringBuilder sb = new StringBuilder(this.matcher.getPlainText());
+		StringBuilder sb = new StringBuilder(getPlainText(this.matcher.getText()));
 
 		String WIKI_TAG_CONST_STR = "{{";
+		
+		
 		int startPos = sb.indexOf(WIKI_TAG_CONST_STR);
 
 		while (startPos >= 0) {
@@ -132,27 +219,41 @@ public class PatternMatcher {
 			// update startPos
 			startPos = sb.indexOf(WIKI_TAG_CONST_STR);
 		}
-
+		
 		String contentText = sb.toString().trim();
 		// strip any html formatting
-		contentText = contentText.replaceAll("&gt;", ">");
-		contentText = contentText.replaceAll("&lt;", "<");
-		contentText = contentText.replaceAll("<ref.*?>.*?</ref>", " ");
-		contentText = contentText.replaceAll("</?.*?>", " ");
+//		contentText = Utils.decodeHtmlEntities(contentText);
+//		
+//		contentText = contentText.replaceAll("<ref.*?>.*?</ref>", " ");
+//		contentText = contentText.replaceAll("</?.*?>", " ");
 
 		return contentText;
 	}
+	
+	public String getPlainText(String text) {
+		text = Utils.decodeHtmlEntities(text);
+		
+        text = text.replaceAll("<ref>.*?</ref>", " ");
+        text = text.replaceAll("</?.*?>", " ");
+//        text = text.replaceAll("\\{\\{.*?\\}\\}", " ");
+        text = text.replaceAll("\\[\\[.*?:.*?\\]\\]", " ");
+        text = text.replaceAll("\\[\\[(.*?)\\]\\]", "$1");
+//        text = text.replaceAll("\\s(.*?)\\|(\\w+\\s)", " $2");
+        text = text.replaceAll("\\[.*?\\]", " ");
+        text = text.replaceAll("\\'+", "");
+        return text;
+    }
 
 	/**
 	 * @requires this.infobox neq null
 	 */
 	public String getInfoBoxTemplate() {
-		Scanner scanner = new Scanner(this.infoBox.dumpRaw().trim());// remove empty lines
+		Scanner scanner = new Scanner(this.infoBox.getText().trim());// remove empty lines
 		String line = scanner.nextLine(); // first line
 
 		line = line.replace("{{", "");
 
-		// in case of invalid infobox format
+		// in case of 1-line infobox
 		if (line.indexOf('|') > 0) {
 			line = line.substring(0, line.indexOf('|'));
 		}
@@ -162,8 +263,9 @@ public class PatternMatcher {
 		return line.trim();
 	}
 
+	// TODO: improve in case of 1-line infobox
 	public Map<String, String> getInfoBoxAttributes() {
-		Scanner scanner = new Scanner(this.infoBox.dumpRaw());
+		Scanner scanner = new Scanner(this.infoBox.getText());
 		Map<String, String> attributes = new HashMap<>();
 		String attribute = null;
 		String value = null;

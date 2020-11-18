@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -33,10 +34,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 import info.bliki.wiki.dump.IArticleFilter;
-import info.bliki.wiki.dump.InfoBox;
 import info.bliki.wiki.dump.Siteinfo;
 import info.bliki.wiki.dump.WikiArticle;
 import info.bliki.wiki.dump.WikiXMLParser;
+import wiki2ont.wiki.InfoBox;
 import wiki2ont.wiki.PatternMatcher;
 import wiki2ont.wiki.Utils;
 
@@ -48,10 +49,11 @@ public class Wiki2Ont implements IArticleFilter {
 
 	private OntClass clArticle;
 	private OntClass clCategory;
+	private OntClass clTemplate;
 	private OntDataProperty propSummary;
 	private OntDataProperty propInfobox;
 	private Siteinfo siteinfo;
-	
+
 	public Wiki2Ont(String uri) {
 		this.uri = uri;
 		this.ns = uri + "#";
@@ -68,6 +70,7 @@ public class Wiki2Ont implements IArticleFilter {
 		// shared
 		clArticle = model.createOntClass(ns + "Article");
 		clCategory = model.createOntClass(ns + "Category");
+		clTemplate = model.createOntClass(ns + "Template");
 		propSummary = model.createDataProperty(ns + "summary");
 		propInfobox = model.createDataProperty(ns + "infobox");
 		siteinfo = new Siteinfo();
@@ -86,7 +89,7 @@ public class Wiki2Ont implements IArticleFilter {
 		RDFDataMgr.read(model, is, lang);
 	}
 
-	public void processDumpFiles(String path) throws IOException, SAXException {
+	public void processDumpFiles(String path) throws IOException, SAXException, URISyntaxException {
 		File directory = new File(path);
 		File files[] = directory.listFiles();
 
@@ -118,7 +121,7 @@ public class Wiki2Ont implements IArticleFilter {
 	public void processArticle(WikiArticle article) {
 		PatternMatcher matcher = new PatternMatcher(article.getText());
 
-		OntIndividual inArticle = clArticle.createIndividual(ns + Utils.toWikiUrl(article.getTitle()));
+		OntIndividual inArticle = clArticle.createIndividual(getURI(article.getTitle()));
 		inArticle.addLabel(article.getTitle());
 
 		// redirect
@@ -132,8 +135,7 @@ public class Wiki2Ont implements IArticleFilter {
 				return;
 			}
 
-			String uriRedirect = ns + Utils.toWikiUrl(redirectText);
-
+			String uriRedirect = getURI(redirectText);
 			OntIndividual target = model.getIndividual(uriRedirect);
 			if (target == null) {
 				target = clArticle.createIndividual(uriRedirect);
@@ -141,6 +143,7 @@ public class Wiki2Ont implements IArticleFilter {
 			}
 
 			inArticle.addSameIndividual(target);
+
 			return;
 		}
 
@@ -149,22 +152,23 @@ public class Wiki2Ont implements IArticleFilter {
 
 		// infobox
 		InfoBox infoBox = matcher.getInfoBox();
-		if (infoBox == null) {
-			return;
+		if (infoBox != null) {
+			String infoBoxTemplate = matcher.getInfoBoxTemplate();
+			String uriInfoBox = getURI(infoBoxTemplate);
+			OntClass clInfoBox = model.getOntClass(uriInfoBox);
+
+			if (clInfoBox == null) {
+				clInfoBox = model.createOntClass(uriInfoBox);
+				clInfoBox.addSuperClass(clTemplate);
+
+				clInfoBox.addLabel(infoBoxTemplate);
+			}
+
+			inArticle.addClassAssertion(clInfoBox);
+
+			// prop
+			inArticle.addProperty(propInfobox, matcher.getInfoBox().getText());
 		}
-
-		String infoBoxTemplate = matcher.getInfoBoxTemplate();
-		String uriInfoBox = ns + Utils.toWikiUrl(infoBoxTemplate);
-		OntClass clInfoBox = model.getOntClass(uriInfoBox);
-		if (clInfoBox == null) {
-			clInfoBox = model.createOntClass(uriInfoBox);
-			clInfoBox.addLabel(infoBoxTemplate);
-		}
-
-		inArticle.addClassAssertion(clInfoBox);
-
-		// prop
-		inArticle.addProperty(propInfobox, matcher.getInfoBox().dumpRaw());
 
 		// categories
 		List<String> categories = matcher.getCategories();
@@ -172,15 +176,28 @@ public class Wiki2Ont implements IArticleFilter {
 		for (String category : categories) {
 			category = category.trim();
 
-			String uriCategory = ns + Utils.toWikiUrl(category);
+			String uriCategory = getURI(category);
 			OntClass clCategory = model.getOntClass(uriCategory);
 			if (clCategory == null) {
 				clCategory = model.createOntClass(uriCategory);
+				clCategory.addSuperClass(this.clCategory);
 				clCategory.addLabel(category);
 			}
 
 			inArticle.addClassAssertion(clCategory);
 		}
+	}
+
+	/**
+	 * @requires text != null
+	 */
+	private String getURI(String text) {
+		// handle ns prob
+		if (Character.isDigit(text.charAt(0))) {
+			text = '_' + text;
+		}
+
+		return ns + Utils.toWikiUrl(text);
 	}
 
 	@Override
@@ -194,22 +211,22 @@ public class Wiki2Ont implements IArticleFilter {
 	public WikiArticle addArticleByUrl(String page) {
 		try {
 			page = URLEncoder.encode(page, "UTF-8");
-			
+
 			String url = "https://vi.wikipedia.org/w/api.php?action=parse&prop=wikitext&format=json&page=" + page;
-			
+
 			String json = sendGet(url);
-			
+
 			JsonObject result = JsonParser.parseString(json).getAsJsonObject();
 			JsonObject parse = result.getAsJsonObject("parse");
-			
+
 			WikiArticle article = new WikiArticle();
 			article.setTitle(parse.get("title").getAsString(), siteinfo);
 			article.setId(parse.get("pageid").getAsString());
-			article.setText(parse.getAsJsonObject("wikitext").get("*").getAsString());	
-			
+			article.setText(parse.getAsJsonObject("wikitext").get("*").getAsString());
+
 			//
 			processArticle(article);
-			
+
 			return article;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -251,8 +268,9 @@ public class Wiki2Ont implements IArticleFilter {
 						+ "PREFIX xsd:     <http://www.w3.org/2001/XMLSchema#> \n"
 						+ "PREFIX wo:     <http://example.com#> \n" +
 
-						"SELECT ?x WHERE { \n" + "?x rdfs:label ?label . FILTER regex(?label, \"" + name
-						+ "\", \"i\") \n" + "?x rdf:type wo:Article ."
+						"SELECT * WHERE { \n" + "?x rdfs:label ?label . FILTER regex(?label, \"" + name
+						+ "\", \"i\") \n" + "?x rdf:type wo:Article ." + "?x wo:summary ?summary ."
+						+ "?x wo:infobox ?infobox ."
 //						+ "?x ?p ?o"
 						+ "}"), model);
 
@@ -260,12 +278,13 @@ public class Wiki2Ont implements IArticleFilter {
 
 		List<OntIndividual> individuals = new ArrayList<OntIndividual>();
 		while (res.hasNext()) {
-			QuerySolution querySolution = res.next();
-
-			RDFNode node = querySolution.get("x");
-			OntIndividual individual = model.getIndividual(node.toString());
-
-			individuals.add(individual);
+			System.out.println(res.next());
+//			QuerySolution querySolution = res.next();
+//
+//			RDFNode node = querySolution.get("x");
+//			OntIndividual individual = model.getIndividual(node.toString());
+//
+//			individuals.add(individual);
 		}
 
 		return individuals;
