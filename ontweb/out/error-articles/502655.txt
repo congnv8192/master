@@ -1,0 +1,112 @@
+java.util.NoSuchElementException: No line found
+	at java.base/java.util.Scanner.nextLine(Scanner.java:1651)
+	at wiki2ont.wiki.PatternMatcher.getSummary(PatternMatcher.java:245)
+	at wiki2ont.Wiki2Ont.processArticle(Wiki2Ont.java:155)
+	at wiki2ont.Wiki2Ont.process(Wiki2Ont.java:213)
+	at info.bliki.wiki.dump.WikiXMLParser.endElement(WikiXMLParser.java:155)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.endElement(AbstractSAXParser.java:618)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanEndElement(XMLDocumentFragmentScannerImpl.java:1727)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:2898)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:605)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:112)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:541)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:888)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:824)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1224)
+	at info.bliki.wiki.dump.WikiXMLParser.parse(WikiXMLParser.java:194)
+	at wiki2ont.Wiki2Ont.processDumpFile(Wiki2Ont.java:108)
+	at wiki2ont.Wiki2Ont.processDumpFiles(Wiki2Ont.java:100)
+	at wiki2ont.App.main(App.java:30)
+---END StackTrace---
+Title: Shisha
+{{pp-vandalism|small=yes}}
+{{bài cùng tên|Shisha (định hướng)}}
+[[Tập tin:Hookah 2.jpg|phải|nhỏ|Một shisha của Ai Cập với một cái chụp phía trên chén và ống Syria. [[File:Hookah.ogg|frameless|center]]]]
+'''Shisha''' ({{lang|ar|شيشة}}), xuất phát từ chữ ''shīshe'' ({{lang|fa|شیشه}}) trong [[tiếng Ba Tư]] hay '''ống nước'''<ref name=who-ad>[http://www.who.int/entity/tobacco/global_interaction/tobreg/Waterpipe%20recommendation_Final.pdf WHO Study Group on Tobacco Product Regulation (TobReg) an advisory note "Waterpipe tobacco smoking:health effects, research needs and recommended actions by regulators", 2005]</ref> (hay còn gọi là “thuốc lào Ả rập”) là một thiết bị có một hoặc nhiều thân (thường làm bằng thủy tinh) dùng để hút như hút [[thuốc lá]], trong đó khói được lọc và làm lạnh bằng cách đi qua nước.<ref>{{cite magazine|publisher=Harper's|title=The History and Mystery of Tobacco|date=June 1855}}</ref> Xuất phát từ [[Ấn Độ]],<ref name="CGNS Hookah India">{{chú thích web|url = http://www.commongroundnews.org/article.php?id=1692&lan=en&sid=1&sp=0| title = Beyond the Smoke, There is Solidarity Among Cultures|publisher = Victoria Harben for Common Ground News Service|accessdate = ngày 5 tháng 12 năm 2008}}</ref><ref name="Metromode">{{chú thích web|url = http://www.metromodemedia.com/features/MetroDetroitHookah0097.aspx| title = Metro Detroit's Hookah Scene|publisher = Terry Parris Jr for Metromode Media|accessdate = ngày 27 tháng 12 năm 2008}}</ref><ref name="The colors of India">{{chú thích web|url = http://www.thecolorsofindia.com/hookah/hookah-history.html| title = Hookah History|publisher = Colors of India|accessdate = ngày 5 tháng 12 năm 2008}}</ref><ref name="Hookah India Chapman">{{chú thích sách |last1= Rousselet|first1= Louis|title= India and Its Native Princes: Travels in Central India and in the Presidencies of Bombay and Bengal|edition= Reprint - Asian Educational Services 2005|year= 2005|origyear= 1875|publisher= Chapman and Hall|location= London|language=tiếng Anh - UK|isbn= 8-1206-1887-4|page= 290|chapter= XXVII - The Ruins of Futtehpore}}</ref> shisha đã trở nên phổ biến, đặc biệt tại [[Trung Đông]] và dần dần được biết đến ngày càng nhiều ở [[Bắc Mỹ]], [[Châu Âu]], [[Úc]] và [[Brasil]].<ref name="Encyclopædia Britannica">{{chú thích web|url =http://encyclopedia.jrank.org/HIG_HOR/HOOKAH_the_English_spelling_of_.html| title = Hookah|publisher = Encyclopædia Britannica|accessdate = ngày 8 tháng 4 năm 2008}}</ref>
+
+== Tên gọi ==
+[[Tập tin:MaliHookah.JPG|nhỏ|Một nhóm thanh niên đang hút shisha tại quán bar của [[Mali]].]]
+
+Tùy vào từng địa phương, shisha hay ''hookah'' thường được gọi bằng nhiều tên: [[tiếng Ả Rập]] gọi là ''Shisha'' (شيشة) hoặc ''Nargeela'' (نرجيلة) hoặc ''Argeela'' (أركيلة\أرجيلة) và được sử dụng trong toàn bộ [[thế giới Ả Rập]]; ''Narguileh'' (đôi khi còn đọc là ''Argilah'') là tên thường dùng ở [[Thổ Nhĩ Kỳ]], [[Ai Cập]], [[Hy Lạp]], [[Cộng hòa Síp|Síp]], [[Armenia]], [[Azerbaijan]], [[Liban]], [[Iraq]], [[Jordan]], và [[Syria]]. ''Narghile'' xuất phát từ chữ [[tiếng Ba Tư|Ba Tư]] ''nārghile'', có nghĩa là [[dừa|cây dừa]], từ này lại xuất phát từ [[tiếng Phạn|chữ Phạn]] ''nārikela'' ({{lang|sa|नारिकेला}}), cho thấy khi xưa shisha được làm từ vỏ dừa.<ref>{{chú thích web | url=http://www.mymerhaba.com/en/main/content.asp_Q_id_E_1124 | title=Nargile | publisher = mymerhaba }}</ref><ref>[http://www.lankanewspapers.com/news/2007/8/18197_space.html]</ref>
+
+== Lịch sử ==
+Người ta vẫn chưa biết chính xác thời gian và nơi Shisha được nghĩ ra. Theo Cyril Elgood (trang 41, 110) trong đó không ghi nguồn tham khảo, người nghĩ ra thứ này là Hakim Abu’l-Fatḥ Gīlānī (mất năm 1588), một bác sĩ [[người Ba Tư]] làm việc tại cung điện của hoàng đế Mughal [[Akbar Đại đế|Akbar]] I (1542 - 1605).<ref name=Sivaramakrishnan4-5>{{chú thích sách |title=Tobacco and Areca Nut |last=Sivaramakrishnan |first=V. M. |authorlink= |coauthors= |year=2001 |publisher=Orient Blackswan |location=[[Hyderabad (India)|Hyderabad]] |isbn=8125020136 |page= |pages=4–5}}</ref><ref name=Blechynden215>{{chú thích sách |title=Calcutta, Past and Present |last=Blechynden |first=Kathleen |year=1905 |publisher=University of California |location=[[Los Angeles]] |isbn= |page=215}}</ref><ref name=RousseletLouis>{{chú thích sách |title=India and Its Native Princes: Travels in Central India and in the Presidencies of Bombay and Bengal |last=Rousselet |first=Louis |year=1875 |publisher=Chapman and Hall |location=London |isbn= |page=290}}</ref> Sau khi người châu Âu đưa [[thuốc lá]] vào Ấn Độ, Hakim, hậu duệ của [[Abdul-Qadir Gilani]] người [[gilan (tỉnh)|tỉnh Gilan]], một tỉnh ở phía bắc [[Iran]] đến sinh sống tại [[Ấn Độ]], rồi trở thành bác sĩ trong cung điện Mughal đã tỏ ra lo ngại khi việc hút thuốc lá ngày càng phổ biến trong giới quý tộc Ấn Độ, nên ông mường tượng ra một hệ thống làm cho khói phải đi qua nước để được 'tinh lọc'.<ref name=Sivaramakrishnan4-5/> Gilani đã nghĩ ra ''ḡalyān'' sau khi Asad Beg, đại sứ của [[Adil Shahi|Bijapur]], khuyến khích Akbar hút thuốc.<ref name=Sivaramakrishnan4-5/> Sau khi thiết bị mới này đã phổ biến trong giới quý tộc, nó nhanh chóng trở thành biểu tượng của đẳng cấp của giới quý tộc và cận quý tộc.<ref name=Sivaramakrishnan4-5/><ref name=RousseletLouis/>
+Ở phía bắc Ấn Độ, truyền thống này còn giữ trong cách dân tộc Jat, Bisnois, Rajput, v.v. Tuy vậy, một bài thơ của nhà thơ Ba Tư Ahlī Šīrāzī (mất năm 1535) đã nhắc đến việc sử dụng ḡalyān (Falsafī, II, tr. 277; Semsār, 1963, tr. 15), vì thế có thể nó đã được dùng từ thời kỳ Vua [[Tahmasp I|Ṭahmāsp I]] (1514-1576). Vì thế, có vẻ như Abu’l-Fatḥ Gīlānī chỉ là người có công truyền bá ḡalyān, thứ đã được dùng ở Ba Tư, đến Ấn Độ.
+
+== Cấu trúc và hoạt động ==
+
+=== Thành phần ===
+Nếu không kể ống dây, một shisha bao gồm một số thành phần, trong đó có bốn thành phần quan trọng.
+
+==== Chén ====
+Hay còn được gọi là đầu shisha, chén đóng vai trò bình chứa, thường được làm từ [[đất sét]] hoặc [[cẩm thạch]], có tác dụng giữ [[than]] và [[thuốc lá]] trong quá trình hút. Người ta bỏ thuốc lá vào chén rồi được phủ một miếng giấy bạc có đục lỗ hoặc một màn bằng [[thủy tinh]] hay [[kim loại]]. Than hồng sẽ được đặt lên trên cùng, để có thể đốt thuốc lá với nhiệt độ thích hợp.
+
+Cũng có biến thể trong phần đầu của shisha, trong đó người ta dùng trái cây thay cho chén đất truyền thống. Trái cây được khoét rỗng ruột và đục lỗ để có được hình dạng và cấu trúc tương tự như chén đất, rồi bỏ thuốc vào giống như cách trên.
+
+Gần đây người ta cũng cải tiến cái chén để giữ nước ép trong thuốc lá. Chén Tangiers Phunnel và Chén Sahara Vortex là hai mẫu chén shisha cải tiến này.
+
+==== Màn gió (có thể có, có thể không) ====
+Màn gió shisha là một tấm phủ đặt lên trên phần chén, có dạng lỗ khí. Nó ngăn gió không làm tăng tỷ lệ cháy và nhiệt độ của củi, và để tro và tàn than bay lên không khí xung quanh. Nó hạn chế cháy vì làm cho than không văng ra khi có va chạm.
+
+==== Vòi ====
+Vòi là một ống dẻo dài cho phép hút khói từ xa, làm cho nguội trước khi hít vào. Phía đầu ống thường được bịt bằng một miếng hút bằng kim loại, gỗ, hoặc nhựa với hình dáng và màu sắc khác nhau. Có thể có một hoặc nhiều ống trong một shisha.
+
+==== Thân và miếng đệm ====
+Thân shisha là một cái ống rỗng. Chén được gắn ở phía trên ống. Đôi khi người ta gắn xô đá vào giữa thân và chén để làm mát khói. Ở cuối là một ống hẹp được nhúng chìm trong nước. Nơi thân gắn với bình nước được hàn kín bằng một miếng đệm. Gần đó có ít nhất hai cái lỗ thoát khí phía trên nước. Người ta có thể gắn vòi vào một hoặc nhiều lỗ này.
+
+==== Van làm sạch (không bắt buộc) ====
+Nhiều shisha được trang bị một van làm sạch gắn với bình nước nối ra ngoài không khí để làm sạch khói cũ nằm trong bình lâu ngày. Van một chiều này thường là một hòn bi đơn giản bịt lỗ bằng sức nặng và sẽ mở ra nếu người ta thổi vào vòi.
+
+==== Bình nước ====
+[[Tập tin:Woodworkdamas.JPG|nhỏ|upright|trái|Những thợ mộc ở [[Damas]] đang chế tạo những bộ phận gỗ cho một sản phẩm Shisha (thế kỷ 19).]]
+
+Thân shisha nằm trên một bình nước. Đầu dưới của ống thân nằm dưới mặt nước. Khói được truyền qua thân và khỏi đầu dưới, tạo thành bọt trong nước. Làm như vậy sẽ làm mát và làm ẩm khói. Người ta thường dùng nước trái cây đổ thêm vào nước hoặc thay hoàn toàn nước. Một miếng trái cây, lá bạc hà, và đá viên cũng có thể bỏ thêm vào.
+
+==== Đĩa ====
+Một cái đĩa hoặc khay tàn thuốc nằm ngay phía dưới chén để hứng tàn rơi khỏi than.
+
+==== Vành đai ====
+Vành đai trong shisha thường được gắn giữa chén và thân, giữa miếng đệm thân và bình nước và giữa thân với vòi. Tác dụng của vành đây, tuy không bắt buộc, nhưng để giúp hàn chặt các đoạn nối giữa các bộ phận, giúp làm giảm lượng khí đưa vào và làm tăng lượng khói hít vào.
+
+==== Miếng khuếch tán (có thể có hoặc không) ====
+Miếng khuếch tán là một thiết bị bằng nhựa nhỏ có đục lỗ nối với cuối ống. Phần này được nhúng hoàn toàn trong nước, nên tác dụng của nó là phá vỡ bọt khí tạo ra trong quá trình lọc khói, khiến cho khói sạch hơn và bớt tiếng lọc bọc. Nó được dùng trong các shisha sang trọng để hút kiểu thượng hạng và không phải là thiết bị bắt buộc.
+
+=== Cách hoạt động ===
+[[Tập tin:Hookah-lookthrough.svg|nhỏ|upright]]
+Người ta đổ nước vào bình ở phía dưới shisha để ống thân đã gắn chặt ngập trong nước khoảng vài [[phân]]. Nước càng sâu thì lực hút khi dùng càng phải lớn. Thuốc lá được bỏ vào trong chén đặt ở đầu shisha và than hồng đặt trên đầu thuốc lá. Một số nền văn hóa phủ chén bằng một miếng thiếc hoặc màn kim loại để ngăn cách than với thuốc, làm tối thiểu lượng tro than lẫn trong khói. Cách này cũng giúp giảm nhiệt độ đốt thuốc, để tránh làm cháy thuốc trực tiếp.
+
+Khi người ta hút vòi, khí được đẩy qua cục than và vào trong chén đựng thuốc. Không khí nóng do than tỏa ra sẽ làm bốc hơi (chứ không cháy) thuốc lá, tạo ra khói, rồi được truyền xuống ống thân để đi vào nước trong bình. Khí sẽ tạo ra bọt, mất nhiệt, và tràn lên phần trên của bình, nơi có gắn vòi. Khi người hút hút vòi, khói sẽ đi vào phổi, và sự thay đổi áp suất trong bình sẽ lại kéo khí vào than, tiếp tục quá trình.
+
+Nếu shisha được đốt và tạo ra khói nhưng không ai hút trong thời gian dài, khói bên trong bình nước sẽ được coi là "cũ" và không ngon nữa. Khói cũ sẽ được đẩy ra ngoài qua van làm sạch, nếu có.
+
+== Tác động đến sức khỏe ==
+
+Nhiều người lầm tưởng là khói từ shisha ít nguy hiểm hơn nhiều so với khói thuốc lá.<ref>{{chú thích báo|publisher=The Independent Florida Alligator|title=UF study finds more teens smoke hookah|author=JARED MISNER|date=ngày 18 tháng 11 năm 2009|url=http://www.alligator.org/news/campus/article_744a0e26-d403-11de-b968-001cc4c03286.html}}</ref> Hơi nước do shisha tạo ra làm cho khói bớt khó chịu và gây ra cảm giác an toàn giả tạo, bớt lo lắng về tác hại thực sự đối với sức khỏe.<ref>{{cite paper|url=http://www.pediatrics.org/cgi/content/full/116/1/e113|author=Barry Knishkowy and Yona Amitai| title= Water-Pipe (Narghile) Smoking: An Emerging Health Risk Behaviour|year=2005 |publisher=Pediatrics; journal of the American Academy of Pediatrics}}</ref> Các bác sĩ tại nhiều bệnh viện trong đó có [[Phòng khám Mayo]] đã nói rằng việc hút shisha cũng tàn phá sức khỏe y như hút thuốc lá,<ref name="mayoclinic.com">[http://www.mayoclinic.com/health/hookah/AN01265 Hookah smoking: Is it safer than cigarettes? - MayoClinic.com]</ref><ref>[http://www.irinnews.org/Report.aspx?ReportId=77426 Water pipe smoking a significant TB risk - IRIN News, March 2008]</ref> và một nghiên cứu của Tổ chức Y tế Thế giới cũng xác nhận kết quả này.<ref>[http://www.theaustralian.news.com.au/story/0,20867,21396451-2703,00.html Egyptians warned on pipe smoking | The Australian]</ref>
+
+Mỗi lượt hút shisha thường kéo dài hơn 40 phút, và gồm từ 50 đến 200 lần hít, mỗi lần từ 0,15 đến 0,5 lít khói.<ref>{{cite paper|doi=10.1016/j.pbb.2004.06.005 |author=Alan Shihadeh, Sima Azar, Charbel Antonios, Antoine Haddad|title=Towards a topographical model of narghile water-pipe café smoking: a pilot study in a high socioeconomic status neighbourhood of Beirut, Lebanon |date=September, 2004 |publisher=Elsevier Pharmacology Biochemistry and Behavior, Volume 79, Issue 1}}</ref><ref>{{cite paper|doi=10.1093/jnci/92.2.106 |author=Mirjana V. Djordjevic, Steven D. Stellman, Edith Zang | title= Doses of Nicotine and Lung Carcinogens Delivered to Cigarette Smokers|date=ngày 19 tháng 1 năm 2000 |publisher=Journal of the National Cancer Institute, Vol. 92, No. 2}}</ref> Báo cáo của Tổ chức Y tế Thế giới và Hội Ung thư Hoa Kỳ cho thấy, trong một lượt hút shisha kéo dài một giờ, một người có thể sẽ hít nhiều gấp 100 đến 200 lượng khói và nhiều hơn 70% lượng [[nicotine]] so với hút một điếu thuốc lá.<ref>{{cite paper|url=http://media.www.collegian.com/media/storage/paper864/news/2008/11/20/News/Hookah.Smoking.Poses.Health.Risks-3554476.shtml |title=Hookah smoking poses health risks |date=ngày 20 tháng 11 năm 2008 |publisher=Rocky Mountain Collegian}}</ref>
+
+Một nghiên cứu vào năm 2005 cũng cho thấy người hút shisha có nguy cơ mắc bệnh răng miệng gấp 5 lần người không hút. Người hút shisha cũng có nguy cơ bị ung thư phổi cao gấp 5 lần người không hút.<ref>{{cite paper|url=http://www.usatoday.com/news/nation/2005-12-28-hookah-trend_x.htm |title=Hookah trend is puffing along |date=ngày 28 tháng 12 năm 2005 |publisher=USA Today | first1=Wendy | last1=Koch | accessdate = ngày 4 tháng 5 năm 2010}}</ref>
+
+Nước dùng để lọc khói hoàn toàn không hiệu quả trong việc loại bỏ tất cả các chất độc hại.<ref>{{cite paper|url=http://www.usatoday.com/news/health/2007-05-29-WHO-hooka_N.htm |title=WHO warns the hookah may pose same risk as cigarettes |date=ngày 29 tháng 5 năm 2007 |publisher=USA Today}}</ref>
+
+Một nghiên cứu về việc hút shisha và [[ung thư]] tại [[Pakistan]] đã được xuất bản năm 2008.<ref>{{cite paper|url=http://www.harmreductionjournal.com/content/5/1/19 |title=Hookah smoking and cancer: carcinoembryonic antigen (CEA) levels in exclusive/ever hookah smokers |date=ngày 24 tháng 5 năm 2008 |publisher=Harm Reduction Journal}}</ref> Mục tiêu của nghiên cứu là "tìm ra mức độ huyết thanh [[Carcinoembryonic antigen|CEA]] trong những người chỉ hút shisha, tức là những ai hút shisha mà không hút thứ nào khác (thuốc lá, [[bidi]], v.v.), nhồi thuốc từ 1 đến 4 lần một ngày, mỗi lần một lượng 120 g (một chén trung bình chứa 30g) hỗn hợp thuốc lá-mật đường (tức là lượng thuốc lá tương đương với 60 điếu thuốc, mỗi điếu 1g thuốc) và hút hết trong 1 đến 8 lượt". Carcinoembryonic antigen (CEA) là chỉ dấu tìm thấy trong một vài dạng ung thư. Mức độ huyết thanh này trong những người chỉ hút shisha thấp hơn so với người hút thuốc điếu mặc dù con số này không khác biệt về mặt thống kê giữa người hút shisha và người không hút. Ngoài ra, nghiên cứu cũng kết luận rằng việc hút shisha nặng (2-4 lần chuẩn bị mỗi ngày; 3-8 lượt mỗi ngày; từ 2 đến 6 tiếng) làm tăng đáng kể lượng CEA.
+
+==Chú thích==
+{{Tham khảo|2}}
+
+== Liên kết ngoài ==
+{{thể loại Commons|Hookahs}}
+{{Wikisource1911Enc|Hookah}}
+* [http://www.who.int/tobacco/global_interaction/tobreg/Waterpipe%20recommendation_Final.pdf WHO Report on water pipe (hookah)], by WHO Study Group on Tobacco Product Regulation (TobReg).
+* [http://www.jnrbm.com/content/5/1/17 Critique of the WHO Report on water pipe (hookah)] by Chaouachi Kamal. A Critique of WHO's TobReg "Advisory Note" titled: "Waterpipe Tobacco Smoking: Health Effects, Research Needs and Recommended Actions by Regulators. Journal of Negative Results in Biomedicine 2006 (17 Nov); 5:17 (Highly Accessed)
+* [http://www.cesar.umd.edu/cesar/cesarfax/vol17/17-23.pdf Scientific Evidence of the Health Risks of Hookah Smoking] (University of Maryland, College Park: ngày 9 tháng 6 năm 2008, vol 17, issue 23
+
+[[Thể loại:Văn hóa Ấn Độ]]
+[[Thể loại:Thuốc lá]]
+[[Thể loại:Hút thuốc qua ống]]
+[[Thể loại:Văn hóa Iran]]
+[[Thể loại:Văn hóa Ả Rập]]
+[[Thể loại:Phát minh của Ấn Độ]]
+[[Thể loại:Phát minh của Iran]]
+[[Thể loại:Văn hóa Hồi giáo]]

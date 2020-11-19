@@ -38,9 +38,9 @@ public class App {
 //				System.out.println(individual);
 //			}
 
-			try (OutputStream os = new FileOutputStream(AppConfig.APP_PATH_ONTO)) {
-				app.exportOntology(os, Lang.RDFXML);
-			}
+//			try (OutputStream os = new FileOutputStream(AppConfig.APP_PATH_ONTO)) {
+//				app.exportOntology(os, Lang.RDFXML);
+//			}
 			
 //			app.exportOntology(System.out, Lang.RDFXML);
 		} catch (Exception e) {

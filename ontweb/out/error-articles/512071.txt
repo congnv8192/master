@@ -1,0 +1,73 @@
+java.lang.StringIndexOutOfBoundsException: String index out of range: 0
+	at java.base/java.lang.StringLatin1.charAt(StringLatin1.java:48)
+	at java.base/java.lang.String.charAt(String.java:712)
+	at wiki2ont.Wiki2Ont.getURI(Wiki2Ont.java:200)
+	at wiki2ont.Wiki2Ont.processArticle(Wiki2Ont.java:183)
+	at wiki2ont.Wiki2Ont.process(Wiki2Ont.java:213)
+	at info.bliki.wiki.dump.WikiXMLParser.endElement(WikiXMLParser.java:155)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.endElement(AbstractSAXParser.java:618)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanEndElement(XMLDocumentFragmentScannerImpl.java:1727)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:2898)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:605)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:112)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:541)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:888)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:824)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1224)
+	at info.bliki.wiki.dump.WikiXMLParser.parse(WikiXMLParser.java:194)
+	at wiki2ont.Wiki2Ont.processDumpFile(Wiki2Ont.java:108)
+	at wiki2ont.Wiki2Ont.processDumpFiles(Wiki2Ont.java:100)
+	at wiki2ont.App.main(App.java:30)
+---END StackTrace---
+Title: Cầu Octávio Frias de Oliveira
+{{Thông tin cầu
+|bridge_name   = Cầu Octávio Frias
+|image         = Ponte estaiada Octavio Frias - Sao Paulo.jpg
+|caption       = Cầu Octávio Frias
+|official_name = Octavio Frias của Oliveira
+|crosses       = [[sông Pinheiros]]
+|locale        = [[São Paulo]], [[Brasil]]
+|design        = [[cầu dây văng]]
+|length        = 1.600 m<ref name=structurae>{{Structurae|id=s0039010|title=Octávio Frias de Oliveira Bridge|access=2009-09-19}}</ref>
+|height        = 138 m<ref name=structurae /> (cột trụ)
+|complete      = Tháng 5 năm 2008
+|open          = 10 tháng 5 năm 2008
+|coordinates   = {{Coord|23.61275|S|46.699239|W|display=inline,title}}
+|extra={{Location map | Brazil
+|lat        = -23.61275
+|long       = -46.69924
+|border     = none
+|width      = 250
+|caption    = <!-- blank -->
+}}}}
+
+'''Cầu Octávio Frias''' là một cây [[cầu dây văng]] tại [[São Paulo]], [[Brasil]] bắc qua [[sông Pinheiros]], thông xe vào tháng 5 năm 2008. Cây cầu cao 138 m, dài 1.600 m nối bờ Pinheiros với đại lộ Jornalista Roberto Marinho.
+
+Kiểu dáng của cầu rất đặc biệt do cầu có [[cột trụ]] hình chữ X.
+
+Đây là cây cầu duy nhất trên thế giới có hai tầng đường quay sang hai phía, được nâng đỡ bởi một cột trụ [[bê tông]].
+
+Vào cuối tháng 12, đèn được lắp đặt lên các dây cáp và những [[hiệu ứng]] ánh sáng của cây cầu  trông giống như ánh đèn trên một [[cây Giáng sinh|cây thông Giáng sinh]].
+
+Chi phí là  184 triệu [[Real Brasil|Real]] để xây dựng cây cầu và 40 triệu R$  để chiếu sáng.
+
+<gallery>
+Ponte estaiada Octavio Frias de Oliveira 01 Sao Paulo 2008 08.jpg
+File:Octavio_Frias_de_Oliveira_Bridge.jpg
+File:Ponte_Estaiada_Octavio_Frias_de_Oliveira.jpg
+</gallery>
+
+{{Sơ khai giao thông}}
+
+== Chú thích ==
+{{Tham khảo}}
+
+== Liên kết ngoài ==
+*[http://www.trekearth.com/gallery/photo710444.htm Cây cầu mới, hình ảnh từ São Paolo]
+{{thể loại Commons|Ponte Octavio Frias de Oliveira}}
+
+[[Thể loại:|Octávio Frias de Oliveira]]
+[[Thể loại:Cầu hoàn thành năm 2008|Octávio Frias de Oliveira]]
+[[Thể loại:Cầu dây văng tại Brasil|Octávio Frias de Oliveira]]
+[[Thể loại:Giao thông São Paulo (thành phố)]]

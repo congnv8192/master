@@ -1,0 +1,28 @@
+java.lang.NullPointerException: Cannot invoke "java.lang.CharSequence.length()" because "this.text" is null
+	at java.base/java.util.regex.Matcher.getTextLength(Matcher.java:1770)
+	at java.base/java.util.regex.Matcher.reset(Matcher.java:416)
+	at java.base/java.util.regex.Matcher.<init>(Matcher.java:253)
+	at java.base/java.util.regex.Pattern.matcher(Pattern.java:1134)
+	at info.bliki.wiki.dump.WikiPatternMatcher.<init>(WikiPatternMatcher.java:40)
+	at wiki2ont.wiki.PatternMatcher.<init>(PatternMatcher.java:33)
+	at wiki2ont.Wiki2Ont.processArticle(Wiki2Ont.java:126)
+	at wiki2ont.Wiki2Ont.process(Wiki2Ont.java:213)
+	at info.bliki.wiki.dump.WikiXMLParser.endElement(WikiXMLParser.java:155)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.endElement(AbstractSAXParser.java:618)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractXMLDocumentParser.emptyElement(AbstractXMLDocumentParser.java:184)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.scanStartElement(XMLNSDocumentScannerImpl.java:351)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:2725)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:605)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:112)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:541)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:888)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:824)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1224)
+	at info.bliki.wiki.dump.WikiXMLParser.parse(WikiXMLParser.java:194)
+	at wiki2ont.Wiki2Ont.processDumpFile(Wiki2Ont.java:108)
+	at wiki2ont.Wiki2Ont.processDumpFiles(Wiki2Ont.java:100)
+	at wiki2ont.App.main(App.java:30)
+---END StackTrace---
+Title: Đảng Thiên Đạo giáo Thanh hữu
+null

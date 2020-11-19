@@ -2,7 +2,7 @@ package wiki2ont;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -18,9 +18,7 @@ import java.util.List;
 import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.QueryExecutionFactory;
 import org.apache.jena.query.QueryFactory;
-import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
-import org.apache.jena.rdf.model.RDFNode;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
 import org.xml.sax.SAXException;
@@ -97,13 +95,26 @@ public class Wiki2Ont implements IArticleFilter {
 
 		for (File file : files) {
 			if (file.isFile()) {
+				
+				try (PrintWriter os = new PrintWriter(new FileOutputStream(new File(AppConfig.APP_PATH_LOGS), true))) {
+					os.println(System.currentTimeMillis() + ": processing file: " + file.getName());
+				}
+				
 				processDumpFile(file);
+				
+				try (OutputStream os = new FileOutputStream(AppConfig.APP_PATH_ONTO)) {
+					exportOntology(os, Lang.RDFXML);
+				}
+				
+				try (PrintWriter os = new PrintWriter(new FileOutputStream(new File(AppConfig.APP_PATH_LOGS), true))) {
+					os.println(System.currentTimeMillis() + ": DONE.");
+				}
 			}
 		}
 	}
 
 	public void processDumpFile(File file) throws IOException, SAXException {
-		System.out.println("processing file: " + file.getName());
+		System.out.println("processing file: " + file.getName() + "==============================================================");
 		
 		new WikiXMLParser(file, this).parse();
 	}
