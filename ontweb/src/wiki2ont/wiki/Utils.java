@@ -33,6 +33,15 @@ public class Utils {
 		return text;
 	}
 	
+	public static String stripWikiHtmlFormat(String text) {
+		text = decodeHtmlEntities(text);
+		
+		text = text.replaceAll("<ref.*?>.*?</ref>", " ");
+		text = text.replaceAll("</?.*?>", " ");
+		
+		return text;
+	}
+	
 	public static void main(String[] args) {
 		System.out.println(toWikiUrl("Câu lạc bộ bóng đá Hà Nội T&amp;T"));
 	}

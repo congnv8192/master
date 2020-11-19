@@ -2,10 +2,12 @@ package wiki2ont;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -101,6 +103,8 @@ public class Wiki2Ont implements IArticleFilter {
 	}
 
 	public void processDumpFile(File file) throws IOException, SAXException {
+		System.out.println("processing file: " + file.getName());
+		
 		new WikiXMLParser(file, this).parse();
 	}
 
@@ -204,7 +208,24 @@ public class Wiki2Ont implements IArticleFilter {
 	public void process(WikiArticle article, Siteinfo siteinfo) throws IOException {
 
 		if (article.isMain()) {
-			processArticle(article);
+			System.out.println("processing article: " + article.getId() + ": " + article.getTitle());
+			try {				
+				processArticle(article);
+			} catch (Exception e) {
+				System.out.println("error article: " + article.getId());
+
+				PrintWriter writer = new PrintWriter(new File(AppConfig.APP_PATH_ERROR_ARTICLES+"/"+article.getId()+".txt"));
+				
+				e.printStackTrace(writer);
+				writer.println("---END StackTrace---");
+				
+				writer.println("Title: "+article.getTitle());
+				writer.println(article.getText());
+				writer.close();
+				
+//				e.printStackTrace();
+//				throw new IOException();
+			}
 		}
 	}
 
